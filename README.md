@@ -1,149 +1,64 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 Salomão — Agente Educador Financeiro com IA Generativa
 
-## Contexto
+Solução desenvolvida para o desafio **DIO Lab: A Bia do Futuro**, propondo um agente de IA Generativa focado em **educação financeira**.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+## Sobre o Salomão
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+Muita gente tem dificuldade em entender conceitos básicos de finanças pessoais — reserva de emergência, tipos de investimento, organização de gastos. O **Salomão** é um agente educativo que explica esses conceitos de forma simples, usando os dados do próprio cliente como exemplo prático, **sem nunca recomendar investimentos**.
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+- **Persona:** educador paciente e didático, tom informal e acessível — como um professor particular.
+- **Público-alvo:** pessoas iniciantes em finanças que querem aprender a organizar sua vida financeira.
 
----
+## Arquitetura
 
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
----
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
-
-```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+```mermaid
+flowchart TD
+    A[Cliente] -->|Mensagem| B[Interface]
+    B --> C[LLM]
+    C --> D[Base de Conhecimento]
+    D --> C
+    C --> E[Validação]
+    E --> F[Resposta]
 ```
 
+| Componente | Descrição |
+|---|---|
+| Interface | Streamlit |
+| LLM | Ollama (local) |
+| Base de Conhecimento | JSON/CSV com dados do cliente |
+
+## Segurança e Anti-Alucinação
+
+- Responde apenas com base nos dados fornecidos no contexto.
+- Admite quando não sabe algo, em vez de inventar respostas.
+- Nunca recomenda investimentos — apenas explica como funcionam.
+- Não acessa dados sensíveis (senhas etc.) nem substitui um profissional certificado.
+
+## Base de Conhecimento
+
+O agente usa os dados mockados da pasta [`data/`](./data/) para contextualizar e personalizar as explicações:
+
+| Arquivo | Uso no Salomão |
+|---|---|
+| `perfil_investidor.json` | Personalizar explicações conforme o perfil do cliente |
+| `transacoes.csv` | Analisar padrões de gastos de forma didática |
+| `historico_atendimento.csv` | Dar continuidade a interações anteriores |
+| `produtos_financeiros.json` | Ensinar sobre produtos disponíveis |
+
+> O produto "Fundo Multimercado" foi substituído por "Fundo Imobiliário (FII)" para validar as respostas com mais segurança.
+
+## Prompts
+
+O comportamento do Salomão é guiado por um system prompt com regras claras (nunca recomendar investimentos, usar linguagem simples, admitir limitações) e exemplos de few-shot prompting para tratar perguntas comuns e casos-limite, como perguntas fora do escopo ou pedidos de dados sensíveis.
+
+## Documentação completa
+
+| Etapa | Arquivo |
+|---|---|
+| Caso de uso, persona e arquitetura | [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md) |
+| Base de conhecimento | [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md) |
+| Prompts do agente | [`docs/03-prompts.md`](./docs/03-prompts.md) |
+
 ---
 
-## Dicas Finais
-
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+Baseado no template do desafio [DIO Lab: Bia do Futuro](https://github.com/digitalinnovationone/dio-lab-bia-do-futuro).
